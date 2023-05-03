@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const ItemWrapper = styled.div`
+  margin-top: 15px;
   flex-shrink: 0;
   width: ${(props) => props.itemWidth};
   padding: 0 8px;
@@ -8,6 +9,90 @@ export const ItemWrapper = styled.div`
 
   .inner {
     width: 100%;
+  }
+
+  .swiper {
+    cursor: pointer;
+    position: relative;
+    .control {
+      color: #fff;
+      display: none;
+    }
+
+    &:hover {
+      .control {
+        display: flex;
+      }
+    }
+
+    .indicator {
+      position: absolute;
+      bottom: 10px;
+      height: 10px;
+      width: 30%;
+      left: 0;
+      right: 0;
+      z-index: 9;
+      margin: 0 auto;
+
+      .dot-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20%;
+        margin-right: 5px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .dot {
+          color: #fff;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: #fff;
+
+          &.active {
+            width: 8px;
+            height: 8px;
+          }
+        }
+      }
+    }
+
+    .btn {
+      position: absolute;
+      z-index: 9999;
+      width: 83px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &.left {
+        background: linear-gradient(
+          to left,
+          transparent 0%,
+          rgba(0, 0, 0, 0.25) 100%
+        );
+      }
+
+      &.right {
+        background: linear-gradient(
+          to right,
+          transparent 0%,
+          rgba(0, 0, 0, 0.25) 100%
+        );
+      }
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      right: 0;
+    }
   }
 
   .cover {
@@ -23,6 +108,7 @@ export const ItemWrapper = styled.div`
       top: 0;
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
 
