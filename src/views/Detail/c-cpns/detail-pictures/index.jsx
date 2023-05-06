@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types'
 import React, { memo } from 'react'
-import { useSelector } from 'react-redux'
+import { shallowEqual, useSelector } from 'react-redux'
 import { PictureWrapper } from './style'
 
 const DetailPicture = memo((props) => {
-  const { itemData } = useSelector((state) => ({
-    itemData: state.detail.itemData
-  }))
+  const { itemData } = useSelector(
+    (state) => ({
+      itemData: state.detail.itemData
+    }),
+    shallowEqual
+  )
   return (
     <PictureWrapper>
       <div className="pictures">

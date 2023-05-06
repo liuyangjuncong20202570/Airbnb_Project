@@ -12,7 +12,7 @@ export const ViewWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999;
+    z-index: 9;
     top: 50%;
     border: 2px solid #eee;
     transform: translateY(-50%);

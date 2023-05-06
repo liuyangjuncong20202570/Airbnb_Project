@@ -15,7 +15,8 @@ const RoomItem = memo((props) => {
 
   const swiperRef = useRef()
 
-  const BtnClickHandle = (isRight = true) => {
+  const BtnClickHandle = (isRight = true, e) => {
+    e.stopPropagation()
     isRight ? swiperRef.current.next() : swiperRef.current.prev()
     let newIndex = isRight ? currentIndex + 1 : currentIndex - 1
     if (newIndex < 0) newIndex = itemData?.picture_urls.length - 1
@@ -32,10 +33,10 @@ const RoomItem = memo((props) => {
   const swiperElement = (
     <div className="swiper">
       <div className="control">
-        <div className="btn left" onClick={(e) => BtnClickHandle(false)}>
+        <div className="btn left" onClick={(e) => BtnClickHandle(false, e)}>
           <IconArrowLeft width="30" height="30" />
         </div>
-        <div className="btn right" onClick={(e) => BtnClickHandle(true)}>
+        <div className="btn right" onClick={(e) => BtnClickHandle(true, e)}>
           <IconArrowRight width="30" height="30" />
         </div>
       </div>

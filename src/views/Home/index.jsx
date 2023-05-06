@@ -8,6 +8,8 @@ import HomeSectionV2 from './c-cpns/HomeSectionV2'
 import { isEmptyO } from '@/utils/isEmptyObject'
 import HomeSectionV3 from './c-cpns/HomeSectionV3'
 import HomeSectionV4 from './c-cpns/HomeSectionV4'
+import AppHeader from '@/components/app-header'
+import { changeHeaderConfigAction } from '@/store/modules/main'
 
 const Home = memo(() => {
   const dispatch = useDispatch()
@@ -23,10 +25,12 @@ const Home = memo(() => {
 
   useEffect(() => {
     dispatch(fetchHomeData())
+    dispatch(changeHeaderConfigAction({ isFixed: true, topAlpha: true }))
   }, [])
 
   return (
     <HomeWrapper>
+      <AppHeader />
       <HomeBanner />
       <div className="content">
         {isEmptyO(discount) && <HomeSectionV2 itemData={discount} />}

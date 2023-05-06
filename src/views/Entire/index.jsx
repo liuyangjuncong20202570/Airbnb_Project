@@ -6,12 +6,15 @@ import EntirePagination from './c-cpns/Entire-pagination'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { fetchRoomList } from '@/store/modules/entire/createActions'
 import { isEmptyO } from '@/utils/isEmptyObject'
+import AppHeader from '@/components/app-header'
+import { changeHeaderConfigAction } from '@/store/modules/main'
 
 const Entire = memo(() => {
   // 发送网路请求、保存数据
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchRoomList())
+    dispatch(changeHeaderConfigAction({ isFixed: true, topAlpha: false }))
   }, [dispatch])
   // 获取redux中数据
   const { roomList, totalCount, currentPage, isLoading } = useSelector(
@@ -25,6 +28,7 @@ const Entire = memo(() => {
   )
   return (
     <EntireWrapper>
+      <AppHeader />
       <EntireFilter />
       {isEmptyO(roomList) && (
         <EntireRooms

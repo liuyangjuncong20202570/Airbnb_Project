@@ -1,9 +1,15 @@
 import styled from 'styled-components'
 
 export const FilterWrapper = styled.div`
+  position: fixed;
+  top: 110px;
+  left: 0;
+  right: 0;
+  z-index: 100;
   margin-left: 8px;
   display: flex;
   align-items: center;
+  background-color: #fff;
   .filterTab {
     cursor: pointer;
     margin-right: 15px;

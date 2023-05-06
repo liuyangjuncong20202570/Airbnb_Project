@@ -9,7 +9,8 @@ export const RightWrapper = styled.div`
     margin-right: 20px;
     display: flex;
     width: 150px;
-    color: ${(props) => props.theme.text.primaryColor};
+    color: ${(props) =>
+      props.theme.isAlpha ? '#fff' : props.theme.text.primaryColor};
     cursor: pointer;
     align-items: center;
     justify-content: space-between;
@@ -25,6 +26,7 @@ export const RightWrapper = styled.div`
     padding: 4px 0px 4px 6px;
     justify-content: space-around;
     align-items: center;
+    background-color: ${(props) => (props.theme.isAlpha ? '#fff' : '')};
     ${(props) => props.theme.mixin.boxshadow};
 
     .pannel {

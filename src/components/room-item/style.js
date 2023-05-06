@@ -63,7 +63,7 @@ export const ItemWrapper = styled.div`
 
     .btn {
       position: absolute;
-      z-index: 9999;
+      z-index: 99;
       width: 83px;
       height: 100%;
       display: flex;
